@@ -83,7 +83,7 @@ anotherFunction(strg)
  */
 
 
-head = [1,1,2,3,3,3,4,5,6,6,6,7]
+head = [1,1,2,4,4,4,5,6,6,6,7]
 var deleteDuplicates = function (head) {
     let cont = 0;
     let arr = [];
@@ -96,3 +96,32 @@ var deleteDuplicates = function (head) {
 };
 
 console.log(deleteDuplicates(head))
+
+
+var romanToInt = function(s) {
+    const sym = {
+      'I': 1,
+      'V': 5,
+      'X': 10,
+      'L': 50,
+      'C': 100,
+      'D': 500,
+      'M': 1000
+  }
+
+  let result = 0;
+
+  for (let i = 0; i < s.length; i++) {
+      const cur = sym[s[i]];
+      const next = sym[s[i + 1]];
+
+      if (cur < next) {
+          result += next - cur;
+          i++;
+      } else {
+          result += cur;
+      }
+  }
+
+  return result;
+};
